@@ -1,2 +1,6 @@
+ChatApp.dockerfile.bak
 node_modules
 .env
+ChatApp.dockerfile
+Dockerfile
+.dockerignore

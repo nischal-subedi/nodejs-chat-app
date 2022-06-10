@@ -19,17 +19,14 @@ var Message = mongoose.model('Message', {
 })
 
 // // Referring to K8 Secret using process.env {Storing in variables to make it neat and easy}
-//var username = process.env.NODE_MONGODB_USERNAME
-//var password = process.env.NODE_MONGODB_PASSWORD
-//var url = process.env.NODE_DATABASE_SERVER_URL
-//var port = process.env.NODE_DATABASE_SERVER_PORT
+var username = process.env.NODE_MONGODB_USERNAME
+var password = process.env.NODE_MONGODB_PASSWORD
+var url = process.env.NODE_DATABASE_SERVER_URL
+var port = process.env.NODE_DATABASE_SERVER_PORT
 // // var database = process.env.MONGO_DATABASE
 
 // For K8 (With Reference to Secrets)
-//var dbUrl = `mongodb://${username}:${password}@${url}:${port}`
-
-//docker image connection
-var dbUrl = `mongodb://host.docker.internal:27017`
+var dbUrl = `mongodb://${username}:${password}@${url}:${port}`
 
 app.get('/messages', cors(), (req, res) => {
   Message.find({}, (err, messages) => {
